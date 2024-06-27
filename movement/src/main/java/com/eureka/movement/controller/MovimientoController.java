@@ -1,9 +1,12 @@
 package com.eureka.movement.controller;
 
+import com.eureka.movement.api.ClientServiceClient;
+import com.eureka.movement.dto.ClienteDto;
 import com.eureka.movement.model.Cuenta;
 import com.eureka.movement.model.Movimiento;
 import com.eureka.movement.service.CuentaService;
 import com.eureka.movement.service.MovimientoService;
+import com.mysql.cj.xdevapi.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,12 +23,16 @@ public class MovimientoController {
     private MovimientoService movimientoService;
 
     @Autowired
+    private ClientServiceClient clientServiceClient;
+
+    @Autowired
     private CuentaService cuentaService;
 
     @GetMapping
     public ResponseEntity<?> getMovimientos() {
         List<Movimiento> savedMovimiento = movimientoService.getAllMovimientos();
-        return ResponseEntity.ok(savedMovimiento);
+        ClienteDto cliente = clientServiceClient.getClientById(1L);
+        return ResponseEntity.ok(List.of(cliente));
     }
 
     @PostMapping
