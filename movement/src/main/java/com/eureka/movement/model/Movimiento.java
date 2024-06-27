@@ -6,7 +6,7 @@ import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "movimiento")
+@Table(name = "movimientos")
 public class Movimiento {
 
     @Id
@@ -14,6 +14,8 @@ public class Movimiento {
     private Long id;
     @Column(name = "cliente_id", nullable = false)
     private String clienteId;
+    @Column(name = "cuenta_id", nullable = false)
+    private String cuentaId;
     @Column(name = "fecha", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date fecha;
@@ -38,6 +40,14 @@ public class Movimiento {
 
     public void setClienteId(String clienteId) {
         this.clienteId = clienteId;
+    }
+
+    public String getCuentaId() {
+        return cuentaId;
+    }
+
+    public void setCuentaId(String cuentaId) {
+        this.cuentaId = cuentaId;
     }
 
     public Date getFecha() {

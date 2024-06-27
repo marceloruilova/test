@@ -3,7 +3,7 @@ package com.eureka.movement.model;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "cuenta")
+@Table(name = "cuentas")
 public class Cuenta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

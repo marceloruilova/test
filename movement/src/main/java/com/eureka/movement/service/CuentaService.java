@@ -4,18 +4,24 @@ import com.eureka.movement.repository.CuentaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CuentaService {
 
     @Autowired
     private CuentaRepository cuentaRepository;
 
-    public Cuenta createCuenta(Cuenta cuenta) {
+    public Cuenta saveOrUpdate(Cuenta cuenta) {
         return cuentaRepository.save(cuenta);
     }
 
     public Cuenta getCuentaById(Long id) {
         return cuentaRepository.findById(id).orElseThrow(() -> new RuntimeException("Cuenta not found"));
+    }
+
+    public List<Cuenta> getCuentas() {
+        return cuentaRepository.findAll();
     }
 
     public Cuenta updateCuenta(Long id, Cuenta cuenta) {

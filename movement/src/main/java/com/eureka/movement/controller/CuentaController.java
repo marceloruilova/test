@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/cuentas")
 public class CuentaController {
@@ -12,9 +14,15 @@ public class CuentaController {
     @Autowired
     private CuentaService cuentaService;
 
+    @GetMapping
+    public ResponseEntity<?> getCuentas() {
+        List<Cuenta> savedCuenta = cuentaService.getCuentas();
+        return ResponseEntity.ok(savedCuenta);
+    }
+
     @PostMapping
     public ResponseEntity<Cuenta> createCuenta(@RequestBody Cuenta cuenta) {
-        Cuenta newCuenta = cuentaService.createCuenta(cuenta);
+        Cuenta newCuenta = cuentaService.saveOrUpdate(cuenta);
         return ResponseEntity.ok(newCuenta);
     }
 
