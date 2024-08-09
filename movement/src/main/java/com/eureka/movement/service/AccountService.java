@@ -1,7 +1,9 @@
 package com.eureka.movement.service;
 
+import com.eureka.movement.mapper.AccountMapper;
 import com.eureka.movement.model.Account;
 import com.eureka.movement.repository.AccountRepository;
+import com.eureka.movement.request.AccountRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,8 +15,10 @@ public class AccountService {
     @Autowired
     private AccountRepository accountRepository;
 
-    public Account saveOrUpdate(Account account) {
-        return accountRepository.save(account);
+    private AccountMapper accountMapper;
+
+    public Account saveOrUpdate(AccountRequest accountRequest) {
+        return accountRepository.save(accountMapper.toEntity(accountRequest));
     }
 
     public Account getAccountById(Long id) {

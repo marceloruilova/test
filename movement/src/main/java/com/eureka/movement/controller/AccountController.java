@@ -1,5 +1,6 @@
 package com.eureka.movement.controller;
 import com.eureka.movement.model.Account;
+import com.eureka.movement.request.AccountRequest;
 import com.eureka.movement.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,8 +22,8 @@ public class AccountController {
     }
 
     @PostMapping
-    public ResponseEntity<Account> createAccount(@RequestBody Account account) {
-        Account newAccount = accountService.saveOrUpdate(account);
+    public ResponseEntity<Account> createAccount(@RequestBody AccountRequest accountRequest) {
+        Account newAccount = accountService.saveOrUpdate(accountRequest);
         return ResponseEntity.ok(newAccount);
     }
 
