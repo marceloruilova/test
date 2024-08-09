@@ -2,6 +2,7 @@ package com.eureka.movement.controller;
 
 import com.eureka.movement.api.ClientServiceClient;
 import com.eureka.movement.model.Movement;
+import com.eureka.movement.request.MovementRequest;
 import com.eureka.movement.service.MovementService;
 import jakarta.ws.rs.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,9 +29,9 @@ public class MovementController {
     }
 
     @PostMapping
-    public ResponseEntity<Movement> createMovement(@RequestBody Movement movement) {
+    public ResponseEntity<Movement> createMovement(@RequestBody MovementRequest movementRequest) {
         try {
-            Movement newMovement = movementService.createOrUpdateMovement(movement);
+            Movement newMovement = movementService.createOrUpdateMovement(movementRequest);
             return ResponseEntity.ok(newMovement);
         } catch (NotFoundException e) {
             return ResponseEntity.badRequest().build();

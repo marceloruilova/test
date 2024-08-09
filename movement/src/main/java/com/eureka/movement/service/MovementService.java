@@ -1,8 +1,10 @@
 package com.eureka.movement.service;
 
+import com.eureka.movement.mapper.MovementMapper;
 import com.eureka.movement.model.Account;
 import com.eureka.movement.model.Movement;
 import com.eureka.movement.repository.MovementRepository;
+import com.eureka.movement.request.MovementRequest;
 import jakarta.ws.rs.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,8 @@ public class MovementService {
 
     @Autowired
     private AccountService accountService;
+
+    private MovementMapper movementMapper;
 
     public Movement saveOrUpdate(Movement movement) {
         return movementRepository.save(movement);
@@ -54,8 +58,10 @@ public class MovementService {
         movementRepository.deleteById(id);
     }
 
-    public Movement createOrUpdateMovement(Movement movement) throws NotFoundException {
+    public Movement createOrUpdateMovement(MovementRequest movementRequest) throws NotFoundException {
         BigDecimal newBalance;
+        Movement movement = movementMapper.toEntity(movementRequest);
+
         if (exists(movement.getId())) {
             newBalance = movement.getBalance().add(movement.getValue());
         } else {
