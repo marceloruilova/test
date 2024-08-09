@@ -5,7 +5,7 @@ import java.util.List;
 
 public class ClientAccountReportsDTO {
     private Date reportDate;
-    private String cliente;
+    private String client;
     private List<AccountReportDTO> accountReports;
 
     public Date getReportDate() {
@@ -16,12 +16,12 @@ public class ClientAccountReportsDTO {
         this.reportDate = reportDate;
     }
 
-    public String getCliente() {
-        return cliente;
+    public String getClient() {
+        return client;
     }
 
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
+    public void setClient(String client) {
+        this.client = client;
     }
 
     public List<AccountReportDTO> getAccountReports() {
