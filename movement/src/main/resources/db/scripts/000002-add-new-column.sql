@@ -1,1 +1,1 @@
-ALTER TABLE movimientos ADD COLUMN cuenta_id VARCHAR(255) not null;
+ALTER TABLE movements ADD COLUMN account_id VARCHAR(255) not null;

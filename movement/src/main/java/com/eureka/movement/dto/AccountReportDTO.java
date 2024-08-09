@@ -1,78 +1,79 @@
 package com.eureka.movement.dto;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 public class AccountReportDTO {
-    private Date fecha;
-    private String cliente;
-    private String numeroCuenta;
-    private String tipo;
-    private double saldoInicial;
-    private String estado;
-    private double movimiento;
-    private double saldoDisponible;
+    private Date date;
+    private String client;
+    private String accountNumber;
+    private String type;
+    private BigDecimal initialBalance;
+    private String state;
+    private BigDecimal movement;
+    private BigDecimal availableBalance;
 
-    public Date getFecha() {
-        return fecha;
+    public Date getDate() {
+        return date;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setDate(Date date) {
+        this.date = date;
     }
 
-    public String getCliente() {
-        return cliente;
+    public String getClient() {
+        return client;
     }
 
-    public void setCliente(String cliente) {
-        this.cliente = cliente;
+    public void setClient(String client) {
+        this.client = client;
     }
 
-    public String getNumeroCuenta() {
-        return numeroCuenta;
+    public String getAccountNumber() {
+        return accountNumber;
     }
 
-    public void setNumeroCuenta(String numeroCuenta) {
-        this.numeroCuenta = numeroCuenta;
+    public void setAccountNumber(String accountNumber) {
+        this.accountNumber = accountNumber;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getType() {
+        return type;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public double getSaldoInicial() {
-        return saldoInicial;
+    public BigDecimal getInitialBalance() {
+        return initialBalance;
     }
 
-    public void setSaldoInicial(double saldoInicial) {
-        this.saldoInicial = saldoInicial;
+    public void setInitialBalance(BigDecimal initialBalance) {
+        this.initialBalance = initialBalance;
     }
 
-    public String getEstado() {
-        return estado;
+    public String getState() {
+        return state;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public void setState(String state) {
+        this.state = state;
     }
 
-    public double getMovimiento() {
-        return movimiento;
+    public BigDecimal getMovement() {
+        return movement;
     }
 
-    public void setMovimiento(double movimiento) {
-        this.movimiento = movimiento;
+    public void setMovement(BigDecimal movement) {
+        this.movement = movement;
     }
 
-    public double getSaldoDisponible() {
-        return saldoDisponible;
+    public BigDecimal getAvailableBalance() {
+        return availableBalance;
     }
 
-    public void setSaldoDisponible(double saldoDisponible) {
-        this.saldoDisponible = saldoDisponible;
+    public void setAvailableBalance(BigDecimal availableBalance) {
+        this.availableBalance = availableBalance;
     }
 }
